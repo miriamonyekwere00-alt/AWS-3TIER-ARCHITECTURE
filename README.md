@@ -1,28 +1,33 @@
-# AWS 3-Tier Architecture Project
+# AWS 3-Tier Production Architecture
+**Built by:** Miriam | Fribourg, Switzerland | 2026
 
-## Overview
-Production grade AWS infrastructure built from scratch.
+## Project Overview
+A fully functional production grade AWS architecture 
+built from scratch using the AWS Console.
 
-## Architecture
-- VPC with public and private subnets across 2 Availability Zones
-- Application Load Balancer for traffic distribution
-- Auto Scaling Group for self healing infrastructure
+## Architecture Diagram
+Internet → ALB → ASG → EC2 (Private) → RDS MySQL (Private)
+                                    ↓
+                               S3 Bucket (via IAM Role)
+
+## What I Built
+- Custom VPC with CIDR 10.0.0.0/16
+- 4 Subnets across 2 Availability Zones
+- Internet Gateway & NAT Gateway
+- Application Load Balancer (internet facing)
+- Auto Scaling Group with Launch Template & User Data
 - EC2 instances in private subnets
 - RDS MySQL database in private subnets
-- S3 bucket integrated via IAM Role
-- NAT Gateway for private subnet internet access
-- Bastion Host for secure server access
+- S3 bucket integrated securely via IAM Role
+- Bastion Host for secure private access
+- Security Groups following least privilege
 
-## Technologies Used
-- AWS VPC, Subnets, IGW, NAT Gateway
-- EC2, ALB, ASG, Launch Template
-- RDS MySQL
-- S3
-- IAM Roles and Policies
-- AWS Security Groups
+## Key Concepts Demonstrated
+- High availability across multiple AZs
+- Self healing infrastructure
+- Secure private subnet architecture
+- IAM best practices (no access keys)
+- Cost efficient auto scaling
 
 ## Screenshots
-See screenshots folder for full architecture evidence.
-
-## Author
-Built by Miriam | Fribourg, Switzerland | 2026
+See uploaded screenshots for full evidence.
